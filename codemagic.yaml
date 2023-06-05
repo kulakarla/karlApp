@@ -51,6 +51,5 @@ workflows:
         android:
           app_id: 1:818970529704:android:abaa156a71cbeebdcf179d
           groups:
-            - testers
             - test1
           artifact_type: 'apk'
