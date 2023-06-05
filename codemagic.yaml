@@ -19,7 +19,7 @@ workflows:
           flutter packages pub get
       - name: Build AAB with Flutter
         script: |
-          flutter build apk --debug
+          flutter build appbundle --release
 #      - name: Decode Google credentials
 #        script: |
 #          echo $FIREBASE_SERVICE_ACCOUNT > $GOOGLE_APPLICATION_CREDENTIALS
@@ -46,6 +46,7 @@ workflows:
       firebase:
         firebase_service_account: $FIREBASE_SERVICE_ACCOUNT
         android:
-          app_id: x
+          app_id: 1:818970529704:android:abaa156a71cbeebdcf179d
           groups:
             - testers
+            - test1
