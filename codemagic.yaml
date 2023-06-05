@@ -19,21 +19,10 @@ workflows:
           flutter packages pub get
       - name: Build AAB with Flutter
         script: |
-          flutter build appbundle --release
+          flutter build appbundle --release --build-number=1.0.4
       - name: Build APK with Flutter
         script: |
-          flutter build apk --release
-#      - name: Decode Google credentials
-#        script: |
-#          echo $FIREBASE_SERVICE_ACCOUNT > $GOOGLE_APPLICATION_CREDENTIALS
-#      - name: Build the app
-#        script: |
-#          echo "flutter.sdk=$HOME/programs/flutter" > "$CM_BUILD_DIR/android/local.properties"
-#          flutter packages pub get
-#          flutter build apk --release
-#      - name: Distribute app to firebase with gradle plugin
-#        script: |
-#          cd android && ./gradlew appDistributionUploadRelease
+          flutter build apk --release --build-number=1.0.4
     artifacts:
       - build/**/outputs/apk/**/*.apk
       - build/**/outputs/**/*.aab
