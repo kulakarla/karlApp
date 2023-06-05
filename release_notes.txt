@@ -1,5 +1,5 @@
-test test test test test test test test test test test test
-test test test test test test test test test test test test
-test test test test test test test test test test test test
-test test test test test test test test test test test test
-3333333
+Version 1.0.5:
+
+Updated the counter to increment by 2 when clicked
+Fixed possible dependency errors
+Removed boilerplate code
