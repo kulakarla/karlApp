@@ -19,10 +19,10 @@ workflows:
           flutter packages pub get
       - name: Build AAB with Flutter
         script: |
-          flutter build appbundle --release --build-number=1.0.4
+          flutter build appbundle --release --build-name=1.0.4
       - name: Build APK with Flutter
         script: |
-          flutter build apk --release --build-number=1.0.4
+          flutter build apk --release --build-name=1.0.4
     artifacts:
       - build/**/outputs/apk/**/*.apk
       - build/**/outputs/**/*.aab
