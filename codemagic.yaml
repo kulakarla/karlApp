@@ -19,7 +19,7 @@ workflows:
           flutter packages pub get
       - name: Build APK with Flutter
         script: |
-          flutter build apk --release --build-name=1.0.4
+          flutter build apk --release --build-name=1.0.5
     artifacts:
       - build/**/outputs/apk/**/*.apk
       - build/**/outputs/**/mapping.txt
