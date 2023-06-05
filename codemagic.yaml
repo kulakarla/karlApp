@@ -6,6 +6,8 @@ workflows:
       flutter: stable
       android_signing:
         - karl_key
+      groups:
+        - firebase_credentials
       vars:
         PACKAGE_NAME: "io.codemagic.karlapp"
     scripts:
@@ -18,6 +20,17 @@ workflows:
       - name: Build AAB with Flutter
         script: |
           flutter build apk --debug
+      - name: Decode Google credentials
+        script: |
+          echo $FIREBASE_SERVICE_ACCOUNT > $GOOGLE_APPLICATION_CREDENTIALS
+      - name: Build the app
+        script: |
+          echo "flutter.sdk=$HOME/programs/flutter" > "$CM_BUILD_DIR/android/local.properties"
+          flutter packages pub get
+          flutter build apk --release
+      - name: Distribute app to firebase with gradle plugin
+        script: |
+          cd android && ./gradlew appDistributionUploadRelease
     artifacts:
       - build/**/outputs/apk/**/*.apk
       - build/**/outputs/**/*.aab
